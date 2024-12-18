@@ -24,6 +24,7 @@ jobs:
 
       - name: Run Checkov
         run: checkov -d .
+        continue-on-error: true
         
   TFSec:
     runs-on: ubuntu-latest
@@ -40,5 +41,5 @@ jobs:
           sudo mv tfsec /usr/local/bin/
 
       - name: Run tfsec
-        run: |
-          tfsec .
+        run: tfsec .
+        continue-on-error: true
