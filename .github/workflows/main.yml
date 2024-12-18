@@ -17,7 +17,9 @@ jobs:
           python-version: '3.x'
 
       - name: Install Checkov
-        run: pip install checkov
+        run: | 
+          pip install checkov
+          checkov --version
 
       - name: Run Checkov
         run: checkov -d . --output-file checkov-report.html --output-format html
