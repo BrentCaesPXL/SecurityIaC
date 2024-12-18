@@ -23,14 +23,7 @@ jobs:
         run: checkov --version
 
       - name: Run Checkov
-        run: checkov -d . --output-file checkov-report.html --output-format html
-        continue-on-error: true
-
-      - name: Upload Checkov HTML Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: checkov-html-report
-          path: checkov-report.html
+        run: checkov -d .
         
   TFSec:
     runs-on: ubuntu-latest
