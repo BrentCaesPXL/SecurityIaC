@@ -20,7 +20,13 @@ jobs:
         run: pip install checkov
 
       - name: Run Checkov
-        run: checkov -d .
+        run: checkov -d . --output-file checkov-report.html --output-format html
+
+      - name: Upload Checkov HTML Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: checkov-html-report
+          path: checkov-report.html
         
   TFSec:
     runs-on: ubuntu-latest
